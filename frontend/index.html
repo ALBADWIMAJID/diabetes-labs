@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оценка риска диабета 2 типа</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Система предварительной оценки риска диабета 2 типа</h1>
+    <p class="subtitle">
+      Учебный прототип: результат является ориентировочным и не заменяет консультацию врача.
+    </p>
+
+    <form id="risk-form" class="card">
+      <div class="grid">
+        <label>
+          Возраст
+          <input type="number" id="age" min="18" max="100" required />
+        </label>
+
+        <label>
+          Рост (см)
+          <input type="number" id="height_cm" min="100" max="230" required />
+        </label>
+
+        <label>
+          Вес (кг)
+          <input type="number" id="weight_kg" min="30" max="250" step="0.1" required />
+        </label>
+
+        <label>
+          Физическая активность
+          <select id="physical_activity" required>
+            <option value="high">Высокая</option>
+            <option value="medium">Средняя</option>
+            <option value="low">Низкая</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="checks">
+        <label><input type="checkbox" id="family_history_diabetes" /> Семейная история диабета</label>
+        <label><input type="checkbox" id="high_sugar_intake" /> Частое потребление сахара</label>
+        <label><input type="checkbox" id="high_blood_pressure_history" /> Повышенное давление в анамнезе</label>
+      </div>
+
+      <button type="submit">Рассчитать риск</button>
+      <p id="error" class="error"></p>
+    </form>
+
+    <section id="result" class="card hidden">
+      <h2>Результат оценки</h2>
+      <p><strong>Баллы:</strong> <span id="score"></span></p>
+      <p><strong>Уровень риска:</strong> <span id="risk_level"></span></p>
+      <p><strong>Рекомендация:</strong> <span id="recommendation"></span></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
