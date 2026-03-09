@@ -7,10 +7,10 @@ from app.services.risk_logic import calculate_risk
 app = FastAPI(
     title="Diabetes Risk Assessment API",
     description="Учебный API для предварительной оценки риска диабета 2 типа",
-    version="0.1.0",
+    version="0.2.0",
 )
 
-# Разрешаем локальные запросы frontend в рамках учебного прототипа.
+# Для локальной интеграции frontend и backend в рамках лабораторной.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

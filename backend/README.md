@@ -1,18 +1,23 @@
-﻿# Backend (Lab 2)
+﻿# Backend (Lab 3)
 
-Минимальный backend для учебной системы предварительной оценки риска диабета 2 типа.
+Минимальный backend для MVP учебной системы предварительной оценки риска диабета 2 типа.
 
-## Что реализовано
-- `GET /health` — проверка доступности API
-- `POST /risk-assessment` — расчет `score`, `risk_level`, `recommendation`
-- Rule-based логика без базы данных
+## Реализованные endpoints
+- `GET /health` — проверка доступности сервиса.
+- `POST /risk-assessment` — расчет риска по анкете.
+
+## Формат ответа `POST /risk-assessment`
+- `score` — итоговый балл.
+- `risk_level` — категория риска (`низкий риск`, `средний риск`, `высокий риск`).
+- `recommendation` — краткая рекомендация.
+- `explanation` — пояснение, какие факторы повлияли на результат.
 
 ## Локальный запуск
-1. Перейти в папку `backend`
-2. Установить зависимости:
-   - `pip install -r requirements.txt`
-3. Запустить сервер:
-   - `uvicorn app.main:app --reload --port 8000`
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
 
 ## Пример запроса
 ```json
@@ -26,3 +31,6 @@
   "high_blood_pressure_history": false
 }
 ```
+
+## Ограничение
+Данный backend реализует учебный rule-based baseline и не является клинической диагностической системой.

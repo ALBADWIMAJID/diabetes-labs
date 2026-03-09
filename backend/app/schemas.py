@@ -1,5 +1,6 @@
-﻿from pydantic import BaseModel, Field
-from typing import Literal
+﻿from typing import Literal
+
+from pydantic import BaseModel, Field
 
 
 class RiskAssessmentRequest(BaseModel):
@@ -16,3 +17,4 @@ class RiskAssessmentResponse(BaseModel):
     score: int
     risk_level: Literal["низкий риск", "средний риск", "высокий риск"]
     recommendation: str
+    explanation: str
